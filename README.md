@@ -1,5 +1,7 @@
 # Topic Classification for Southwestern Dinka (SIB-200)
 
+[![Open the NLLB demo in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/SLICKMAN-TYRUS/dinka-sib200-topic-classification/blob/main/demo/Dinka_Demo_Colab.ipynb)
+
 Individual summative project: an NLP application for an African language, covering data analysis, baselines, fine-tuning, experiments, error analysis and deployment (Streamlit live app, Colab demo for the fine-tuned model).
 
 | Resource | Link |
