@@ -1,0 +1,4 @@
+dinka_sib200/
+*.pt
+__pycache__/
+.ipynb_checkpoints/
