@@ -8,7 +8,7 @@ Individual summative project: an NLP application for an African language, coveri
 |---|---|
 | Live app (Streamlit Community Cloud, TF-IDF model) | <https://dinka-topic-classifier.streamlit.app/> |
 | Fine-tuned NLLB demo (Colab notebook) | `demo/Dinka_Demo_Colab.ipynb` |
-| Demo video | <ADD VIDEO URL> |
+| Demo video | <https://drive.google.com/drive/folders/1xQkZr-DKaElYO-hQ_Dv2iLcDoYoMNL6p?usp=sharing> |
 | Model weights (Hugging Face Hub) | https://huggingface.co/slickman-tyrus/dinka-sib200-classifier |
 | Report | PDF submitted on the course platform |
 
