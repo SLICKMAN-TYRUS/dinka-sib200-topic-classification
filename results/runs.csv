@@ -1,0 +1,39 @@
+key,exp,seed,dev_macro_f1,test_macro_f1,test_acc,hparams
+majority__s0,majority,0,0.0576036866359446,0.0571428571428571,0.25,
+tfidf_word_1-2_C10__s0,tfidf_word_1-2_C10,0,0.6569510905928998,0.6802923635984854,0.7254901960784313,"word (1, 2) C=10"
+tfidf_char_2-5_C1__s0,tfidf_char_2-5_C1,0,0.7416271248779276,0.7110091230849269,0.7450980392156863,"char_wb (2, 5) C=1"
+tfidf_char_2-5_C10__s0,tfidf_char_2-5_C10,0,0.7640212059666635,0.7236072861286333,0.7598039215686274,"char_wb (2, 5) C=10"
+tfidf_char_2-5_C100__s0,tfidf_char_2-5_C100,0,0.7597699919128491,0.7269103811313634,0.7598039215686274,"char_wb (2, 5) C=100"
+tfidf_char_1-4_C1__s0,tfidf_char_1-4_C1,0,0.701469573336581,0.6780527261494189,0.7205882352941176,"char_wb (1, 4) C=1"
+tfidf_char_1-4_C10__s0,tfidf_char_1-4_C10,0,0.7325120489200582,0.6966951724319864,0.7401960784313726,"char_wb (1, 4) C=10"
+tfidf_char_1-4_C100__s0,tfidf_char_1-4_C100,0,0.7325120489200582,0.6957052689999428,0.7401960784313726,"char_wb (1, 4) C=100"
+tfidf_char_3-6_C1__s0,tfidf_char_3-6_C1,0,0.7619134147646108,0.7185681082726605,0.75,"char_wb (3, 6) C=1"
+tfidf_char_3-6_C10__s0,tfidf_char_3-6_C10,0,0.7714203785632356,0.710844068700978,0.75,"char_wb (3, 6) C=10"
+tfidf_char_3-6_C100__s0,tfidf_char_3-6_C100,0,0.7614366585795157,0.7049406658993994,0.7450980392156863,"char_wb (3, 6) C=100"
+bilstm_scratch__s0,bilstm_scratch,0,0.6330730893056872,0.6001117727193233,0.6470588235294118,E=128 H=128 drop=0.5 lr=0.002 ep<= 40
+bilstm_scratch__s1,bilstm_scratch,1,0.6382809894966183,0.5393704014438658,0.5686274509803921,E=128 H=128 drop=0.5 lr=0.002 ep<= 40
+bilstm_scratch__s2,bilstm_scratch,2,0.5939962254924852,0.5313316971826427,0.5735294117647058,E=128 H=128 drop=0.5 lr=0.002 ep<= 40
+xlmr_base__s0,xlmr_base,0,0.745446456980475,0.5661836932875218,0.5833333333333334,xlm-roberta-base lr=2e-05 head_lr=0.001 bs=16 freeze_emb=False best_ep=14
+xlmr_base__s1,xlmr_base,1,0.7734405373970291,0.6031403588941827,0.6519607843137255,xlm-roberta-base lr=2e-05 head_lr=0.001 bs=16 freeze_emb=False best_ep=14
+xlmr_base__s2,xlmr_base,2,0.7211768105110393,0.6100467777383551,0.6225490196078431,xlm-roberta-base lr=2e-05 head_lr=0.001 bs=16 freeze_emb=False best_ep=8
+nllb600m_encoder__s0,nllb600m_encoder,0,0.776576707469156,0.7235792894084175,0.7401960784313726,facebook/nllb-200-distilled-600M lr=3e-05 head_lr=0.001 bs=16 freeze_emb=True best_ep=7
+nllb600m_encoder__s1,nllb600m_encoder,1,0.7913603344337454,0.7308089732180759,0.7352941176470589,facebook/nllb-200-distilled-600M lr=3e-05 head_lr=0.001 bs=16 freeze_emb=True best_ep=14
+nllb600m_encoder__s2,nllb600m_encoder,2,0.765980624308538,0.7045578078395327,0.7205882352941176,facebook/nllb-200-distilled-600M lr=3e-05 head_lr=0.001 bs=16 freeze_emb=True best_ep=14
+xlmr_frozen_emb__s0,xlmr_frozen_emb,0,0.761657375994944,0.5643770240478647,0.5931372549019608,xlm-roberta-base lr=2e-05 head_lr=0.001 bs=16 freeze_emb=True best_ep=10
+xlmr_frozen_emb__s1,xlmr_frozen_emb,1,0.7447184852757608,0.6381257631257631,0.6617647058823529,xlm-roberta-base lr=2e-05 head_lr=0.001 bs=16 freeze_emb=True best_ep=10
+xlmr_frozen_emb__s2,xlmr_frozen_emb,2,0.7137105854487543,0.5984825858891636,0.6274509803921569,xlm-roberta-base lr=2e-05 head_lr=0.001 bs=16 freeze_emb=True best_ep=18
+nllb600m_lr5e-5__s0,nllb600m_lr5e-5,0,0.7750750963092161,0.7309288688108723,0.7401960784313726,facebook/nllb-200-distilled-600M lr=5e-05 head_lr=0.001 bs=16 freeze_emb=True best_ep=8
+nllb600m_lr5e-5__s1,nllb600m_lr5e-5,1,0.7798416582121535,0.7315723652565759,0.7401960784313726,facebook/nllb-200-distilled-600M lr=5e-05 head_lr=0.001 bs=16 freeze_emb=True best_ep=10
+nllb600m_lr5e-5__s2,nllb600m_lr5e-5,2,0.7709278966732944,0.7300703089406868,0.75,facebook/nllb-200-distilled-600M lr=5e-05 head_lr=0.001 bs=16 freeze_emb=True best_ep=6
+transfer_nus_zeroshot__s0,transfer_nus_zeroshot,0,0.7677175260170117,0.6301001115690144,0.6568627450980392,facebook/nllb-200-distilled-600M lr=3e-05 head_lr=0.001 bs=16 freeze_emb=True best_ep=7
+transfer_nus_zeroshot__s1,transfer_nus_zeroshot,1,0.7619496570396121,0.6461726397876223,0.6617647058823529,facebook/nllb-200-distilled-600M lr=3e-05 head_lr=0.001 bs=16 freeze_emb=True best_ep=10
+transfer_nus_zeroshot__s2,transfer_nus_zeroshot,2,0.7521814134432637,0.6253710253011431,0.6372549019607843,facebook/nllb-200-distilled-600M lr=3e-05 head_lr=0.001 bs=16 freeze_emb=True best_ep=12
+transfer_luo_zeroshot__s0,transfer_luo_zeroshot,0,0.8057568670840982,0.6745236233633166,0.6862745098039216,facebook/nllb-200-distilled-600M lr=3e-05 head_lr=0.001 bs=16 freeze_emb=True best_ep=7
+transfer_luo_zeroshot__s1,transfer_luo_zeroshot,1,0.8054823008663735,0.6924967769800211,0.7058823529411765,facebook/nllb-200-distilled-600M lr=3e-05 head_lr=0.001 bs=16 freeze_emb=True best_ep=7
+transfer_luo_zeroshot__s2,transfer_luo_zeroshot,2,0.809091028326098,0.656123472998135,0.6666666666666666,facebook/nllb-200-distilled-600M lr=3e-05 head_lr=0.001 bs=16 freeze_emb=True best_ep=4
+transfer_eng_zeroshot__s0,transfer_eng_zeroshot,0,0.8387165345513904,0.636910237606216,0.6421568627450981,facebook/nllb-200-distilled-600M lr=3e-05 head_lr=0.001 bs=16 freeze_emb=True best_ep=5
+transfer_eng_zeroshot__s1,transfer_eng_zeroshot,1,0.8595631458004782,0.6169719888878167,0.6323529411764706,facebook/nllb-200-distilled-600M lr=3e-05 head_lr=0.001 bs=16 freeze_emb=True best_ep=3
+transfer_eng_zeroshot__s2,transfer_eng_zeroshot,2,0.8421922703229419,0.650056529050483,0.6519607843137255,facebook/nllb-200-distilled-600M lr=3e-05 head_lr=0.001 bs=16 freeze_emb=True best_ep=3
+pooled_dik+nus__s0,pooled_dik+nus,0,0.7607769423558898,0.7398380287981572,0.75,facebook/nllb-200-distilled-600M lr=3e-05 head_lr=0.001 bs=16 freeze_emb=True best_ep=8
+pooled_dik+nus__s1,pooled_dik+nus,1,0.7382049485091619,0.7103241296518608,0.7205882352941176,facebook/nllb-200-distilled-600M lr=3e-05 head_lr=0.001 bs=16 freeze_emb=True best_ep=17
+pooled_dik+nus__s2,pooled_dik+nus,2,0.7535006347036423,0.6911484752003568,0.7009803921568627,facebook/nllb-200-distilled-600M lr=3e-05 head_lr=0.001 bs=16 freeze_emb=True best_ep=6
