@@ -6,7 +6,7 @@ Individual summative project: an NLP application for an African language, coveri
 
 | Resource | Link |
 |---|---|
-| Live app (Streamlit Community Cloud, TF-IDF model) | <ADD STREAMLIT URL> |
+| Live app (Streamlit Community Cloud, TF-IDF model) | <https://dinka-topic-classifier.streamlit.app/> |
 | Fine-tuned NLLB demo (Colab notebook) | `demo/Dinka_Demo_Colab.ipynb` |
 | Demo video | <ADD VIDEO URL> |
 | Model weights (Hugging Face Hub) | https://huggingface.co/slickman-tyrus/dinka-sib200-classifier |
@@ -56,6 +56,11 @@ Full table: `results/results_table.csv`. Findings:
 
 ## 5. Error analysis
 Confusion matrix: `results/figures/confusion_matrix_nllb600m_seed0.png`. 53 of 204 test sentences are misclassified by the selected NLLB model; 15 are wrong in all 15 main models. Entertainment has the lowest recall (0.47). Annotated errors: `results/errors_annotated.csv`.
+
+### Extra analysis scripts (src/)
+- `explain_tfidf.py`: inspects the TF-IDF model (n-gram weights, one prediction explained, live variants).
+- `ngram_lookup.py`: shows how key n-grams are used in the training sentences, with English sources.
+- `english_reference.py`: same TF-IDF baseline on the English sentences (0.729 vs 0.724 on Dinka).
 
 ## 6. Deployment and how to run it
 **Live app (`streamlit_app/`).** A Streamlit app that serves the character n-gram TF-IDF + logistic regression model (the primary baseline). It downloads the SIB-200 Dinka training file at start-up, fits the model in about two seconds and shows the predicted topic with probabilities. It is deployed on Streamlit Community Cloud with main file `streamlit_app/streamlit_app.py`. Free apps hibernate when idle, so the first request may need a wake-up click.
