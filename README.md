@@ -7,12 +7,12 @@ Individual summative project: an NLP application for an African language, coveri
 | Resource | Link |
 |---|---|
 | Live app (Streamlit Community Cloud, TF-IDF model) | <https://dinka-topic-classifier.streamlit.app/> |
-| Fine-tuned NLLB demo (Colab notebook) | `demo/Dinka_Demo_Colab.ipynb` |
+| Fine-tuned NLLB demo (Colab notebook) | [demo/Dinka_Demo_Colab.ipynb](demo/Dinka_Demo_Colab.ipynb) (open it with the badge above) |
 | Demo video | <https://drive.google.com/drive/folders/1xQkZr-DKaElYO-hQ_Dv2iLcDoYoMNL6p?usp=sharing> |
 | Model weights (Hugging Face Hub) | https://huggingface.co/slickman-tyrus/dinka-sib200-classifier |
-| Report | PDF submitted on the course platform |
+| Report | PDF submitted on the course platform (all numbers in the report come from `results/runs.csv` and `results/preds/`) |
 
-> **Dialect note.** The data is Flores-200 `dik_Latn`, which is **Southwestern (Rek) Dinka**. The author's mother tongue is Bor (Southeastern) Dinka, so Bor input may be classified less reliably. The deployed system should be described as a Southwestern Dinka classifier.
+> **Dialect note.** The data is Flores-200 `dik_Latn`, which is **Southwestern (Rek) Dinka**. The author's mother tongue is Bor (Southeastern) Dinka, so Bor input may be classified less reliably. The system is a Southwestern Dinka classifier.
 
 ## 1. Problem
 Given one Dinka sentence, predict one of 7 topics: science/technology, travel, politics, sports, health, entertainment, geography. Dinka is a low-resource language with very little labelled NLP data. Topic classification is a simple natural-language-understanding task that shows how well pretrained models handle it.
@@ -55,7 +55,7 @@ Full table: `results/results_table.csv`. Findings:
 5. Zero-shot transfer to Dinka with the NLLB encoder: trained on Dholuo 0.674, English 0.635, Nuer 0.634, versus 0.720 trained on Dinka. Pooling Dinka + Nuer gives no gain (0.714).
 
 ## 5. Error analysis
-Confusion matrix: `results/figures/confusion_matrix_nllb600m_seed0.png`. 53 of 204 test sentences are misclassified by the selected NLLB model; 15 are wrong in all 15 main models. Entertainment has the lowest recall (0.47). Annotated errors: `results/errors_annotated.csv`.
+Confusion matrix: `results/figures/confusion_matrix_nllb600m_seed0.png`. 53 of 204 test sentences are misclassified by the selected NLLB model; 15 are wrong in all 15 main models. Entertainment has the lowest recall (0.47). I annotated six of the 53 errors against their English sources (`results/errors_annotated.csv`, columns `error_type` and `my_notes`): 2 translation problems (IDs 8, 1947), 2 Rek-dialect differences (IDs 922, 1221) and 2 model errors (IDs 400, 1360). The other 47 rows are not annotated. See Section 7 of the report.
 
 ### Extra analysis scripts (src/)
 - `explain_tfidf.py`: inspects the TF-IDF model (n-gram weights, one prediction explained, live variants).
@@ -73,6 +73,13 @@ Confusion matrix: `results/figures/confusion_matrix_nllb600m_seed0.png`. 53 of 2
 ```bash
 pip install -r requirements-notebook.txt      # only needed outside Colab
 ```
+**Run the live app locally (inference):**
+```bash
+pip install -r streamlit_app/requirements.txt
+streamlit run streamlit_app/streamlit_app.py
+```
+**Check the reported numbers without retraining:** `results/runs.csv` has the dev and test scores of every run and `results/preds/` has the test predictions, so every table in the report can be rebuilt from these files.
+
 Environment used: Python 3.13, torch 2.11, transformers 5.18.0, scikit-learn 1.6.1, Google Colab T4 GPU.
 
 ## Repository layout
@@ -81,11 +88,11 @@ notebooks/Dinka_SIB200_Colab.ipynb   experiments (with outputs)
 src/model_def.py                     model class + inference helper shared by notebook and demo
 streamlit_app/                       live app (TF-IDF)
 demo/Dinka_Demo_Colab.ipynb          NLLB demo
-results/                             results_table.csv, figures, (add) runs.csv, preds/, errors_annotated.csv
+results/                             results_table.csv, runs.csv (every run), preds/ (test predictions of every run), figures/, errors_annotated.csv
 ```
 
 ## 7. Existing resources vs my own work
-**Existing:** SIB-200 and Flores-200 data; pretrained XLM-R base and NLLB-200-distilled-600M weights; Hugging Face Transformers, PyTorch, scikit-learn, Gradio.
+**Existing:** SIB-200 and Flores-200 data; pretrained XLM-R base and NLLB-200-distilled-600M weights; Hugging Face Transformers, PyTorch, scikit-learn, Streamlit, Gradio.
 **My own work:** data analysis, baseline and BiLSTM implementation, fine-tuning pipeline and experiment design, ablations, transfer experiments, statistical comparisons, error analysis, deployment. AI assistance (Claude, Anthropic) was used for code scaffolding and for drafting; I ran the experiments, checked the outputs and am responsible for the content.
 
 ## References
